@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ONYX MEDIA GLOBAL | Premium MCN Agency Hub</title>
-    <!-- 引入强大的 TailwindCSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 FontAwesome 6.5.1 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;500;700&display=swap');
@@ -24,8 +22,13 @@
             transition: background 0.5s;
         }
 
-        /* 极简双语切换逻辑 */
+        /* 极致安全的双语切换防御：默认防止未加载完成时的双语闪烁 */
+        [lang-en] { display: none; }
+        .lang-en [lang-en] { display: inline !important; }
+        .lang-en div[lang-en], .lang-en p[lang-en], .lang-en span[lang-en] { display: block !important; }
         .lang-en [lang-zh] { display: none !important; }
+        .lang-zh [lang-zh] { display: inline !important; }
+        .lang-zh div[lang-zh], .lang-zh p[lang-zh], .lang-zh span[lang-zh] { display: block !important; }
         .lang-zh [lang-en] { display: none !important; }
 
         /* 极致安全的黑玛瑙流金渐变背景 - 即使图片加载失败也绝对高大上 */
@@ -43,7 +46,7 @@
         .white-mask {
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.6); /* 调优遮罩，完美烘托黑金格调 */
+            background: rgba(0, 0, 0, 0.65); /* 微微加深遮罩，完美烘托黑金格调 */
             backdrop-filter: blur(1px);
         }
 
@@ -73,17 +76,13 @@
 </head>
 <body class="antialiased lang-zh"> 
     
-    <!-- 完美自适应手机和电脑的导航栏 -->
     <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100">
         <div class="container mx-auto flex justify-between items-center h-20 px-4 sm:px-8">
-            <!-- 品牌 Logo -->
             <div class="text-lg sm:text-2xl font-black tracking-tighter uppercase">
                 ONYX<span class="text-gray-300"> MEDIA</span>
             </div>
             
-            <!-- 导航与控制区 -->
             <div class="flex items-center space-x-3 sm:space-x-8">
-                <!-- 电脑端导航链接（手机端自动隐藏） -->
                 <div class="hidden lg:flex items-center space-x-8 uppercase">
                     <a href="#about" class="nav-link hover:text-amber-500 transition"><span lang-zh>关于我们</span><span lang-en>About</span></a>
                     <a href="#cases" class="nav-link hover:text-amber-500 transition"><span lang-zh>合作案例</span><span lang-en>Cases</span></a>
@@ -91,9 +90,7 @@
                     <a href="#contact" class="nav-link hover:text-amber-500 transition"><span lang-zh>联系我们</span><span lang-en>Contact</span></a>
                 </div>
                 
-                <!-- 核心：全平台可见、自适应尺寸的语言切换药丸按钮 -->
                 <button onclick="toggleLang()" class="bg-black text-white px-3 sm:px-5 py-2 text-[10px] font-black hover:bg-amber-500 hover:text-black transition uppercase tracking-wider rounded-full">
-                    <!-- 电脑端显示完整文字，手机端缩写为 EN/中文 以极大地节省空间 -->
                     <span id="langBtnText">
                         <span class="inline lg:hidden">EN</span>
                         <span class="hidden lg:inline">切换为 ENGLISH</span>
@@ -103,10 +100,8 @@
         </div>
     </nav>
 
-    <!-- 响应式首页封面 (带有极速CDN及CSS渐变容错防御) -->
     <header class="relative min-h-screen flex flex-col justify-end border-b border-gray-100 pt-24">
         <div class="absolute inset-0 -z-10 influencer-bg">
-            <!-- 选用极速CDN加速的黑玛瑙高精奢华纹理 -->
             <img src="https://images.unsplash.com/photo-1502239608882-93b729c6af43?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="" onerror="this.style.display='none';">
             <div class="white-mask"></div>
         </div>
@@ -135,7 +130,6 @@
         </div>
     </header>
 
-    <!-- 哲学 / 关于我们 -->
     <section id="about" class="py-20 sm:py-32 border-b border-gray-100">
         <div class="container mx-auto px-4 sm:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
@@ -160,37 +154,39 @@
         </div>
     </section>
 
-    <!-- 合作案例 (采用安全色块及防挂图双重机制) -->
     <section id="cases" class="py-20 sm:py-32 border-b border-gray-100 bg-[#fafafa]">
         <div class="container mx-auto px-4 sm:px-8 text-center mb-12 sm:mb-16">
             <span class="text-[10px] font-black tracking-[0.5em] text-gray-300">02 / CASE STUDIES</span>
             <h2 class="text-3xl sm:text-4xl font-black mt-4 uppercase"><span lang-zh>经典案例</span><span lang-en>Selected Work</span></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 container mx-auto px-4 sm:px-8">
-            <!-- 案例一：餐饮/美食 (配置了极速CDN与石磨灰色块防托底) -->
             <div class="aspect-[4/3] influencer-bg group cursor-pointer rounded-xl overflow-hidden shadow-md">
                 <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="" onerror="this.style.display='none';">
                 <div class="absolute bottom-6 sm:bottom-10 left-6 sm:left-10 text-white z-10 right-6">
                     <p class="text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-amber-400">Food & Beverage / 2026</p>
                     <h3 class="text-xl sm:text-2xl font-bold mt-2">CAIRO GOURMET VIRAL HUB</h3>
-                    <p class="text-xs text-gray-300 mt-2"><span lang-zh>助力中国连锁餐饮引流，月播放量突破 1,000,000+</span><span lang-en>1M+ Views driving massive foot traffic to partner diners.</span></p>
+                    <p class="text-xs text-gray-300 mt-2">
+                        <span lang-zh>助力中国连锁餐饮引流，月播放量突破 1,000,000+</span>
+                        <span lang-en>1M+ Views driving massive foot traffic to F&B partners.</span>
+                    </p>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"></div>
             </div>
-            <!-- 案例二：美妆/时尚 (配置了极速CDN与石磨灰色块防托底) -->
             <div class="aspect-[4/3] influencer-bg group cursor-pointer rounded-xl overflow-hidden shadow-md">
                 <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="" onerror="this.style.display='none';">
                 <div class="absolute bottom-6 sm:bottom-10 left-6 sm:left-10 text-white z-10 right-6">
                     <p class="text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-amber-400">Beauty & Fashion / 2026</p>
                     <h3 class="text-xl sm:text-2xl font-bold mt-2">ONYX GLOW LOCALIZATION</h3>
-                    <p class="text-xs text-gray-300 mt-2"><span lang-zh>美妆出海全案，签约埃及头部达人完成首发售罄</span><span lang-en>Full beauty launch campaign with local elite creators.</span></p>
+                    <p class="text-xs text-gray-300 mt-2">
+                        <span lang-zh>美妆出海全案策划，携手埃及头部达人打造首发即售罄神话</span>
+                        <span lang-en>Full-service beauty launch featuring local elite creators.</span>
+                    </p>
                 </div>
                 <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"></div>
             </div>
         </div>
     </section>
 
-    <!-- 网红矩阵 (支持 2列 -> 3列 -> 6列 自适应) -->
     <section id="matrix" class="py-20 sm:py-32">
         <div class="container mx-auto px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 sm:mb-20 gap-4">
             <div>
@@ -203,49 +199,45 @@
             </div>
         </div>
         
-        <!-- 矩阵卡片列表 -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 container mx-auto px-4 sm:px-8">
             <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
                 <i class="fa-solid fa-utensils text-2xl mb-3"></i>
-                <span>Food / <span lang-zh>美食</span><span lang-en>Food</span></span>
+                <span><span lang-zh>美食</span><span lang-en>Food</span></span>
             </div>
             <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
                 <i class="fa-solid fa-wand-magic-sparkles text-2xl mb-3"></i>
-                <span>Beauty / <span lang-zh>美妆</span><span lang-en>Beauty</span></span>
+                <span><span lang-zh>美妆</span><span lang-en>Beauty</span></span>
             </div>
             <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
                 <i class="fa-solid fa-shirt text-2xl mb-3"></i>
-                <span>Fashion / <span lang-zh>时尚</span><span lang-en>Fashion</span></span>
+                <span><span lang-zh>时尚</span><span lang-en>Fashion</span></span>
             </div>
             <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
                 <i class="fa-solid fa-mobile-screen-button text-2xl mb-3"></i>
-                <span>Tech / <span lang-zh>数码科技</span><span lang-en>Tech</span></span>
+                <span><span lang-zh>数码科技</span><span lang-en>Tech</span></span>
             </div>
             <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
                 <i class="fa-solid fa-plane-departure text-2xl mb-3"></i>
-                <span>Travel / <span lang-zh>文旅探店</span><span lang-en>Travel</span></span>
+                <span><span lang-zh>文旅探店</span><span lang-en>Travel</span></span>
             </div>
             <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
                 <i class="fa-solid fa-clapperboard text-2xl mb-3"></i>
-                <span>Lifestyle / <span lang-zh>生活Vlog</span><span lang-en>Lifestyle</span></span>
+                <span><span lang-zh>生活Vlog</span><span lang-en>Lifestyle</span></span>
             </div>
         </div>
     </section>
 
-    <!-- 页脚与双通道联系方式 (包含一键直达 WhatsApp 通道) -->
     <footer id="contact" class="py-24 sm:py-40 border-t border-gray-100 text-center bg-black text-white">
         <div class="container mx-auto px-4 sm:px-8">
             <h2 class="text-3xl sm:text-5xl lg:text-8xl font-black tracking-tighter mb-12 sm:mb-20 hover:text-amber-500 transition-all cursor-pointer uppercase leading-none">
                 START YOUR ONYX ERA.
             </h2>
             <div class="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12 font-black">
-                <!-- 邮箱联系方式 -->
                 <a href="mailto:HELLO@ONYXMEDIAGLOBAL.COM" class="text-base sm:text-xl border-b-2 sm:border-b-4 border-amber-500 hover:text-amber-400 transition text-amber-500 tracking-wider">
                     HELLO@ONYXMEDIAGLOBAL.COM
                 </a>
                 <span class="text-gray-700 hidden lg:block">/</span>
                 
-                <!-- 唤醒并直达 WhatsApp 手机端/网页端的商业热线 -->
                 <a href="https://wa.me/201225954426" target="_blank" class="text-base sm:text-xl border-b-2 sm:border-b-4 border-emerald-500 hover:text-emerald-400 transition text-emerald-500 flex items-center gap-2 sm:gap-3 tracking-wider">
                     <i class="fa-brands fa-whatsapp text-xl sm:text-2xl"></i> +20 122 595 4426
                 </a>
@@ -257,7 +249,6 @@
         </div>
     </footer>
 
-    <!-- 完美的自适应多语言切换引擎 -->
     <script>
         function toggleLang() {
             const body = document.body;
@@ -266,12 +257,10 @@
             if (body.classList.contains('lang-zh')) {
                 body.classList.remove('lang-zh');
                 body.classList.add('lang-en');
-                // 手机端动态切换为中文小文字标识
                 btnText.innerHTML = `<span class="inline lg:hidden">中文</span><span class="hidden lg:inline">切换为 中文</span>`;
             } else {
                 body.classList.remove('lang-en');
                 body.classList.add('lang-zh');
-                // 手机端动态切换为英文大写小文字标识
                 btnText.innerHTML = `<span class="inline lg:hidden">EN</span><span class="hidden lg:inline">切换为 ENGLISH</span>`;
             }
         }
