@@ -7,90 +7,94 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;500;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Inter:wght@300;400;700;900&family=Noto+Sans+SC:wght@300;500;700&display=swap');
         
         :root { 
             --neon: #D4AF37; /* 奢华黑玛瑙金 */
-            --border: #f0f0f0;
+            --glow: rgba(212, 175, 55, 0.15);
         }
         
         body { 
-            background-color: #ffffff; 
-            color: #000000; 
+            background-color: #0c0a09; 
+            color: #ffffff; 
             font-family: 'Inter', 'Noto Sans SC', sans-serif;
             scroll-behavior: smooth;
-            transition: background 0.5s;
         }
 
-        /* 极致安全的双语切换防御：默认防止未加载完成时的双语闪烁 */
+        /* 极致安全的双语切换防御 */
         [lang-en] { display: none; }
         .lang-en [lang-en] { display: inline !important; }
-        .lang-en div[lang-en], .lang-en p[lang-en], .lang-en span[lang-en] { display: block !important; }
+        .lang-en div[lang-en], .lang-en p[lang-en], .lang-en span[lang-en], .lang-en section[lang-en] { display: block !important; }
         .lang-en [lang-zh] { display: none !important; }
         .lang-zh [lang-zh] { display: inline !important; }
-        .lang-zh div[lang-zh], .lang-zh p[lang-zh], .lang-zh span[lang-zh] { display: block !important; }
+        .lang-zh div[lang-zh], .lang-zh p[lang-zh], .lang-zh span[lang-zh], .lang-zh section[lang-zh] { display: block !important; }
         .lang-zh [lang-en] { display: none !important; }
 
-        /* 极致安全的黑玛瑙流金渐变背景 - 即使图片加载失败也绝对高大上 */
-        .influencer-bg {
+        /* 高级 Instagram 风格：暗金 Aura 微光霓虹背景防御机制 */
+        .ig-premium-bg {
             position: relative;
-            background: radial-gradient(circle at center, #1c1917 0%, #0c0a09 100%);
+            /* 即使图挂了，这个渐变也自带高级的左下角与右上角暗金晕染光芒 */
+            background: 
+                radial-gradient(circle at 90% 10%, var(--glow) 0%, transparent 40%),
+                radial-gradient(circle at 10% 90%, var(--glow) 0%, transparent 45%),
+                linear-gradient(135deg, #0f0d0c 0%, #050404 100%);
             overflow: hidden;
         }
-        .influencer-bg img {
-            transition: transform 0.8s ease;
-        }
-        .influencer-bg:hover img {
-            transform: scale(1.05);
-        }
-        .white-mask {
+        
+        /* 噪声网格滤镜，增加高级杂志质感 */
+        .ig-premium-bg::before {
+            content: "";
             position: absolute;
             inset: 0;
-            background: rgba(0, 0, 0, 0.65); /* 微微加深遮罩，完美烘托黑金格调 */
-            backdrop-filter: blur(1px);
+            background-image: linear-gradient(rgba(18, 16, 15, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(18, 16, 15, 0.3) 1px, transparent 1px);
+            background-size: 20px 20px;
+            z-index: 1;
         }
 
-        /* 响应式自适应大标题 */
         .hero-title { 
-            font-size: clamp(2rem, 7vw, 5.5rem); 
-            line-height: 1.1; 
+            font-size: clamp(2.2rem, 7.5vw, 5.8rem); 
+            line-height: 1.05; 
             font-weight: 900; 
-            letter-spacing: -0.04em; 
+            letter-spacing: -0.05em; 
         }
 
-        /* 黄金高亮标记 */
         .highlight {
-            background: var(--neon);
-            color: #000;
-            padding: 0 8px;
+            background: linear-gradient(90deg, #D4AF37, #F3E5AB);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: inline-block;
         }
 
         .nav-link {
             font-size: 11px;
             font-weight: 800;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.15em;
             text-transform: uppercase;
         }
+
+        /* 隐藏滚动条但保留功能 */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="antialiased lang-zh"> 
+<body class="antialiased lang-zh bg-[#0c0a09]"> 
     
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-xl border-b border-gray-100">
-        <div class="container mx-auto flex justify-between items-center h-20 px-4 sm:px-8">
-            <div class="text-lg sm:text-2xl font-black tracking-tighter uppercase">
-                ONYX<span class="text-gray-300"> MEDIA</span>
+    <nav class="fixed w-full z-50 bg-black/60 backdrop-blur-2xl border-b border-stone-900">
+        <div class="container mx-auto flex justify-between items-center h-20 px-6 sm:px-8">
+            <div class="text-xl font-black tracking-widest uppercase" style="font-family: 'Cinzel', serif;">
+                ONYX<span class="text-amber-500">.</span>
             </div>
             
-            <div class="flex items-center space-x-3 sm:space-x-8">
+            <div class="flex items-center space-x-4 sm:space-x-8">
                 <div class="hidden lg:flex items-center space-x-8 uppercase">
-                    <a href="#about" class="nav-link hover:text-amber-500 transition"><span lang-zh>关于我们</span><span lang-en>About</span></a>
-                    <a href="#cases" class="nav-link hover:text-amber-500 transition"><span lang-zh>合作案例</span><span lang-en>Cases</span></a>
-                    <a href="#matrix" class="nav-link hover:text-amber-500 transition"><span lang-zh>网红矩阵</span><span lang-en>Creators</span></a>
-                    <a href="#contact" class="nav-link hover:text-amber-500 transition"><span lang-zh>联系我们</span><span lang-en>Contact</span></a>
+                    <a href="#about" class="nav-link text-gray-400 hover:text-amber-400 transition"><span lang-zh>关于我们</span><span lang-en>About</span></a>
+                    <a href="#services" class="nav-link text-gray-400 hover:text-amber-400 transition"><span lang-zh>服务生态</span><span lang-en>Services</span></a>
+                    <a href="#cases" class="nav-link text-gray-400 hover:text-amber-400 transition"><span lang-zh>经典案例</span><span lang-en>Cases</span></a>
+                    <a href="#matrix" class="nav-link text-gray-400 hover:text-amber-400 transition"><span lang-zh>网红矩阵</span><span lang-en>Creators</span></a>
+                    <a href="#blueprint" class="nav-link text-gray-400 hover:text-amber-400 transition"><span lang-zh>合作路径</span><span lang-en>Blueprint</span></a>
                 </div>
                 
-                <button onclick="toggleLang()" class="bg-black text-white px-3 sm:px-5 py-2 text-[10px] font-black hover:bg-amber-500 hover:text-black transition uppercase tracking-wider rounded-full">
+                <button onclick="toggleLang()" class="border border-amber-500/30 text-amber-400 px-4 py-2 text-[10px] font-black hover:bg-amber-500 hover:text-black transition uppercase tracking-wider rounded-full backdrop-blur-md">
                     <span id="langBtnText">
                         <span class="inline lg:hidden">EN</span>
                         <span class="hidden lg:inline">切换为 ENGLISH</span>
@@ -100,51 +104,72 @@
         </div>
     </nav>
 
-    <header class="relative min-h-screen flex flex-col justify-end border-b border-gray-100 pt-24">
-        <div class="absolute inset-0 -z-10 influencer-bg">
-            <img src="https://images.unsplash.com/photo-1502239608882-93b729c6af43?q=80&w=1200&auto=format&fit=crop" class="w-full h-full object-cover" alt="" onerror="this.style.display='none';">
-            <div class="white-mask"></div>
-        </div>
+   <!-- 重新设计的 IG 高级感封面（保留用户原始文案） -->
+<header class="relative h-[85vh] sm:h-screen flex flex-col justify-end bg-[#0c0a09] overflow-hidden">
+    <!-- 背景视觉层 -->
+    <div class="absolute inset-0 z-0">
+        <!-- 选用具有开罗现代都市感与时尚气息的背景图，体现 IG 网红风格 -->
+        <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?q=80&w=1200&auto=format&fit=crop" 
+             class="w-full h-full object-cover object-center opacity-50 mix-blend-screen scale-100" 
+             alt="Cairo Modern Lifestyle" 
+             onerror="this.style.opacity='0';">
+        
+        <!-- 核心视觉防御：多重渐变确保高级感 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/50 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0c0a09]/60 via-transparent to-transparent"></div>
+        
+        <!-- 增加 IG 感的纹理和暗角 -->
+        <div class="absolute inset-0" style="background-image: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);"></div>
+    </div>
 
-        <div class="container mx-auto px-4 sm:px-8 pb-16 sm:pb-32 text-white">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
-                <div class="lg:col-span-9">
-                    <div class="inline-block px-3 py-1 border-2 border-amber-500 text-amber-500 text-[9px] sm:text-[10px] font-black uppercase mb-6 sm:mb-8">Nile Digital Powerhouse</div>
-                    <h1 class="hero-title text-white">
-                        Connecting <br>
-                        <span class="text-transparent" style="-webkit-text-stroke: 1.5px #D4AF37;">Egyptian</span> Voices <br>
-                        with <span class="highlight">Global</span> Supply Chains
-                    </h1>
-                    <p class="mt-6 sm:mt-8 text-lg sm:text-2xl font-bold italic text-gray-200">
-                        <span lang-zh>将埃及本土流量与中国出海供应链完美连接</span>
-                        <span lang-en>Bridging Egyptian Creators with Global Commerce.</span>
-                    </p>
+    <div class="container mx-auto px-6 sm:px-8 pb-16 sm:pb-32 relative z-10 text-white">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
+            <div class="lg:col-span-9">
+                <!-- 顶部小标签保持灵动 -->
+                <div class="inline-block px-3 py-1 border-2 border-amber-500 text-amber-500 text-[9px] sm:text-[10px] font-black uppercase mb-6 sm:mb-8 tracking-widest bg-amber-500/10 backdrop-blur-sm">
+                    Nile Digital Powerhouse
                 </div>
-                <div class="lg:col-span-3 border-l-4 border-amber-500 pl-4 sm:pl-8 py-2 text-gray-300">
-                    <p class="text-xs sm:text-sm font-black uppercase tracking-widest leading-relaxed">
-                        <span lang-zh>赋能商业无界<br class="hidden sm:block">让每一个中国品牌闪耀埃及</span>
-                        <span lang-en>EMPOWERING BOUNDLESS BUSINESS<br class="hidden sm:block">SHINE ACROSS THE NILE</span>
-                    </p>
-                </div>
+                
+                <!-- 标题部分 -->
+                <h1 class="hero-title text-white">
+                    Connecting <br>
+                    <span class="text-transparent" style="-webkit-text-stroke: 1.5px #D4AF37;">Egyptian</span> Voices <br>
+                    with <span class="highlight">Global</span> Supply Chains
+                </h1>
+                
+                <!-- 【保留你的原始文案】 -->
+                <p class="mt-6 sm:mt-8 text-lg sm:text-2xl font-bold italic text-gray-200">
+                    <span lang-zh>将埃及本土流量与中国出海供应链完美连接</span>
+                    <span lang-en>Bridging Egyptian Creators with Global Commerce.</span>
+                </p>
+            </div>
+            
+            <!-- 【保留你的右侧原始文案】 -->
+            <div class="lg:col-span-3 border-l-4 border-amber-500 pl-4 sm:pl-8 py-2 text-gray-300">
+                <p class="text-xs sm:text-sm font-black uppercase tracking-widest leading-relaxed">
+                    <span lang-zh>赋能商业无界<br class="hidden sm:block">让每一个中国品牌闪耀埃及</span>
+                    <span lang-en>EMPOWERING BOUNDLESS BUSINESS<br class="hidden sm:block">SHINE ACROSS THE NILE</span>
+                </p>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <section id="about" class="py-20 sm:py-32 border-b border-gray-100">
-        <div class="container mx-auto px-4 sm:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-20">
-                <div class="lg:col-span-4 uppercase text-[10px] font-black text-gray-400 tracking-[0.5em]">01 / Philosophy</div>
+    <section id="about" class="py-24 sm:py-32 border-b border-stone-900 bg-[#0c0a09]">
+        <div class="container mx-auto px-6 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                <div class="lg:col-span-4 uppercase text-[10px] font-black text-amber-500/60 tracking-[0.4em]">01 / Philosophy</div>
                 <div class="lg:col-span-8">
-                    <h2 class="text-3xl sm:text-4xl lg:text-6xl font-black mb-8 sm:mb-12 leading-tight">
+                    <h2 class="text-3xl sm:text-5xl font-black mb-8 leading-tight tracking-tight">
                         <span lang-zh>我们不盲目追随爆款，<br>我们就是爆款本身。</span>
                         <span lang-en>We Don't Chase Trends.<br>We Are The Trend.</span>
                     </h2>
-                    <div class="max-w-2xl">
-                        <p class="text-lg sm:text-xl font-bold mb-6 sm:mb-8 leading-relaxed">
+                    <div class="max-w-2xl text-stone-400 space-y-6">
+                        <p class="text-base sm:text-lg font-medium text-stone-200">
                             <span lang-zh>黑玛瑙全球传媒（Onyx Media Global）立足开罗，专注于用最纯正的本土化语言，将中国强大的品牌力量精准注入埃及快速爆发的社交媒体生态。</span>
                             <span lang-en>Based in Cairo, Onyx Media Global infuses China's supply chain power into Egypt's booming social ecosystem using flawless localization.</span>
                         </p>
-                        <p class="text-gray-500 text-sm sm:text-base leading-loose">
+                        <p class="text-sm leading-relaxed text-stone-400">
                             <span lang-zh>我们的跨国内容团队完美融合了数据分析与极致的视觉审美，助力出海餐饮、美妆及电子零售品牌在 Instagram、TikTok、Facebook 等各大平台上完成高溢价的本土化爆发。</span>
                             <span lang-en>Our cross-border team blends precision data with high-end aesthetic value to ensure your brand achieves local conversion and global premium stance.</span>
                         </p>
@@ -154,98 +179,163 @@
         </div>
     </section>
 
-    <section id="cases" class="py-20 sm:py-32 border-b border-gray-100 bg-[#fafafa]">
-        <div class="container mx-auto px-4 sm:px-8 text-center mb-12 sm:mb-16">
-            <span class="text-[10px] font-black tracking-[0.5em] text-gray-300">02 / CASE STUDIES</span>
-            <h2 class="text-3xl sm:text-4xl font-black mt-4 uppercase"><span lang-zh>经典案例</span><span lang-en>Selected Work</span></h2>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 container mx-auto px-4 sm:px-8">
-            <div class="aspect-[4/3] influencer-bg group cursor-pointer rounded-xl overflow-hidden shadow-md">
-                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="" onerror="this.style.display='none';">
-                <div class="absolute bottom-6 sm:bottom-10 left-6 sm:left-10 text-white z-10 right-6">
-                    <p class="text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-amber-400">Food & Beverage / 2026</p>
-                    <h3 class="text-xl sm:text-2xl font-bold mt-2">CAIRO GOURMET VIRAL HUB</h3>
-                    <p class="text-xs text-gray-300 mt-2">
-                        <span lang-zh>助力中国连锁餐饮引流，月播放量突破 1,000,000+</span>
-                        <span lang-en>1M+ Views driving massive foot traffic to F&B partners.</span>
-                    </p>
+    <section id="services" class="py-24 sm:py-32 border-b border-stone-900 bg-[#12100e]">
+        <div class="container mx-auto px-6 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+                <div class="lg:col-span-4 uppercase text-[10px] font-black text-amber-500/60 tracking-[0.4em]">02 / Service Ecosystem</div>
+                <div class="lg:col-span-8">
+                    <h2 class="text-2xl sm:text-4xl font-black uppercase"><span lang-zh>全链路出海解决方案</span><span lang-en>End-to-End Capabilities</span></h2>
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"></div>
             </div>
-            <div class="aspect-[4/3] influencer-bg group cursor-pointer rounded-xl overflow-hidden shadow-md">
-                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" alt="" onerror="this.style.display='none';">
-                <div class="absolute bottom-6 sm:bottom-10 left-6 sm:left-10 text-white z-10 right-6">
-                    <p class="text-[9px] sm:text-[10px] font-black tracking-widest uppercase text-amber-400">Beauty & Fashion / 2026</p>
-                    <h3 class="text-xl sm:text-2xl font-bold mt-2">ONYX GLOW LOCALIZATION</h3>
-                    <p class="text-xs text-gray-300 mt-2">
-                        <span lang-zh>美妆出海全案策划，携手埃及头部达人打造首发即售罄神话</span>
-                        <span lang-en>Full-service beauty launch featuring local elite creators.</span>
-                    </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="p-8 border border-stone-800 bg-stone-900/40 rounded-xl hover:border-amber-500/40 transition group">
+                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500 group-hover:text-black transition">
+                        <i class="fa-solid fa-language text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3"><span lang-zh>绝对本土化内容</span><span lang-en>Flawless Localization</span></h3>
+                    <p class="text-sm text-stone-400 leading-relaxed"><span lang-zh>拒绝机械翻译。开罗本土编剧团队操刀，用埃及网民最懂的玩梗方式、文化禁忌滤镜，重塑品牌故事。</span><span lang-en>Native Cairo scriptwriters craft viral campaigns that match Egyptian cultural nuances and social trends perfectly.</span></p>
                 </div>
-                <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/20 to-transparent"></div>
+
+                <div class="p-8 border border-stone-800 bg-stone-900/40 rounded-xl hover:border-amber-500/40 transition group">
+                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500 group-hover:text-black transition">
+                        <i class="fa-solid fa-users-viewfinder text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3"><span lang-zh>矩阵精准孵化</span><span lang-en>Elite Matrix Match</span></h3>
+                    <p class="text-sm text-stone-400 leading-relaxed"><span lang-zh>自签与深度合作500+埃及核心红人，涵盖头部KOL到高转化KOC，依数据智能画像，实现高效精准破圈。</span><span lang-en>Access 500+ exclusive & tiered Egyptian creators mapped by data alignment for guaranteed target audience outreach.</span></p>
+                </div>
+
+                <div class="p-8 border border-stone-800 bg-stone-900/40 rounded-xl hover:border-amber-500/40 transition group">
+                    <div class="w-12 h-12 rounded-lg bg-amber-500/10 flex items-center justify-center text-amber-400 mb-6 group-hover:bg-amber-500 group-hover:text-black transition">
+                        <i class="fa-solid fa-chart-line text-xl"></i>
+                    </div>
+                    <h3 class="text-lg font-bold mb-3"><span lang-zh>全案闭环变现</span><span lang-en>ROI-Driven Growth</span></h3>
+                    <p class="text-sm text-stone-400 leading-relaxed"><span lang-zh>打通从“平台曝光”到“线下引流/独立站售罄”的完整链路，提供实时多维度可视化数据复盘。</span><span lang-en>Complete closed-loop driving traffic from IG/TikTok views directly to storefront traffic or e-commerce checkouts.</span></p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="matrix" class="py-20 sm:py-32">
-        <div class="container mx-auto px-4 sm:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 sm:mb-20 gap-4">
+    <section id="cases" class="py-24 sm:py-32 border-b border-stone-900 bg-[#0c0a09]">
+        <div class="container mx-auto px-6 sm:px-8 text-center mb-16">
+            <span class="text-[10px] font-black tracking-[0.4em] text-stone-600">03 / CASE STUDIES</span>
+            <h2 class="text-2xl sm:text-4xl font-black mt-2 uppercase"><span lang-zh>经典案例</span><span lang-en>Selected Work</span></h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 container mx-auto px-6 sm:px-8">
+            <div class="relative aspect-[4/3] ig-premium-bg group cursor-pointer rounded-2xl overflow-hidden border border-stone-800 shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="" onerror="this.style.display='none';">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10"></div>
+                <div class="absolute bottom-8 left-8 right-8 z-20">
+                    <p class="text-[9px] font-black tracking-widest uppercase text-amber-400">Food & Beverage / 2026</p>
+                    <h3 class="text-lg sm:text-2xl font-bold mt-1">CAIRO GOURMET VIRAL HUB</h3>
+                    <p class="text-xs text-stone-400 mt-2"><span lang-zh>助力中国连锁餐饮引流，月播放量突破 1,000,000+</span><span lang-en>1M+ Views driving massive foot traffic to F&B partners.</span></p>
+                </div>
+            </div>
+            <div class="relative aspect-[4/3] ig-premium-bg group cursor-pointer rounded-2xl overflow-hidden border border-stone-800 shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800&auto=format&fit=crop" class="w-full h-full object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700" alt="" onerror="this.style.display='none';">
+                <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent z-10"></div>
+                <div class="absolute bottom-8 left-8 right-8 z-20">
+                    <p class="text-[9px] font-black tracking-widest uppercase text-amber-400">Beauty & Fashion / 2026</p>
+                    <h3 class="text-lg sm:text-2xl font-bold mt-1">ONYX GLOW LOCALIZATION</h3>
+                    <p class="text-xs text-stone-400 mt-2"><span lang-zh>美妆出海全案策划，携手埃及头部达人打造首发即售罄神话</span><span lang-en>Full-service beauty launch featuring local elite creators.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="matrix" class="py-24 sm:py-32 border-b border-stone-900 bg-[#12100e]">
+        <div class="container mx-auto px-6 sm:px-8 flex flex-col sm:flex-row justify-between items-start sm:items-end mb-16 gap-4">
             <div>
-                <span class="text-[10px] font-black tracking-[0.4em] text-gray-300 uppercase">03 / Creators Grid</span>
-                <h2 class="text-3xl sm:text-4xl font-black mt-2 sm:mt-4 uppercase"><span lang-zh>网红矩阵</span><span lang-en>Influencer Matrix</span></h2>
+                <span class="text-[10px] font-black tracking-[0.4em] text-stone-600 uppercase">04 / Creators Grid</span>
+                <h2 class="text-2xl sm:text-4xl font-black mt-2 uppercase"><span lang-zh>红人矩阵矩阵</span><span lang-en>Influencer Matrix</span></h2>
             </div>
             <div class="text-left sm:text-right">
                 <p class="text-4xl sm:text-5xl font-black text-amber-500">500+</p>
-                <p class="text-[10px] font-black uppercase text-gray-400">Total Creators</p>
+                <p class="text-[10px] font-black uppercase text-stone-500 tracking-wider">Total Creators</p>
             </div>
         </div>
         
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 container mx-auto px-4 sm:px-8">
-            <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 container mx-auto px-6 sm:px-8">
+            <div class="aspect-square bg-stone-900 border border-stone-800 flex flex-col items-center justify-center hover:bg-amber-500 hover:text-black hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 rounded-xl shadow-md">
                 <i class="fa-solid fa-utensils text-2xl mb-3"></i>
                 <span><span lang-zh>美食</span><span lang-en>Food</span></span>
             </div>
-            <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
+            <div class="aspect-square bg-stone-900 border border-stone-800 flex flex-col items-center justify-center hover:bg-amber-500 hover:text-black hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 rounded-xl shadow-md">
                 <i class="fa-solid fa-wand-magic-sparkles text-2xl mb-3"></i>
                 <span><span lang-zh>美妆</span><span lang-en>Beauty</span></span>
             </div>
-            <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
+            <div class="aspect-square bg-stone-900 border border-stone-800 flex flex-col items-center justify-center hover:bg-amber-500 hover:text-black hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 rounded-xl shadow-md">
                 <i class="fa-solid fa-shirt text-2xl mb-3"></i>
                 <span><span lang-zh>时尚</span><span lang-en>Fashion</span></span>
             </div>
-            <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
+            <div class="aspect-square bg-stone-900 border border-stone-800 flex flex-col items-center justify-center hover:bg-amber-500 hover:text-black hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 rounded-xl shadow-md">
                 <i class="fa-solid fa-mobile-screen-button text-2xl mb-3"></i>
                 <span><span lang-zh>数码科技</span><span lang-en>Tech</span></span>
             </div>
-            <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
+            <div class="aspect-square bg-stone-900 border border-stone-800 flex flex-col items-center justify-center hover:bg-amber-500 hover:text-black hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 rounded-xl shadow-md">
                 <i class="fa-solid fa-plane-departure text-2xl mb-3"></i>
                 <span><span lang-zh>文旅探店</span><span lang-en>Travel</span></span>
             </div>
-            <div class="aspect-square bg-gray-50 flex flex-col items-center justify-center hover:bg-black hover:text-amber-500 hover:shadow-lg hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 border border-gray-100 rounded-lg">
+            <div class="aspect-square bg-stone-900 border border-stone-800 flex flex-col items-center justify-center hover:bg-amber-500 hover:text-black hover:-translate-y-1 transition-all duration-500 cursor-pointer font-black text-xs uppercase p-4 rounded-xl shadow-md">
                 <i class="fa-solid fa-clapperboard text-2xl mb-3"></i>
                 <span><span lang-zh>生活Vlog</span><span lang-en>Lifestyle</span></span>
             </div>
         </div>
     </section>
 
-    <footer id="contact" class="py-24 sm:py-40 border-t border-gray-100 text-center bg-black text-white">
-        <div class="container mx-auto px-4 sm:px-8">
-            <h2 class="text-3xl sm:text-5xl lg:text-8xl font-black tracking-tighter mb-12 sm:mb-20 hover:text-amber-500 transition-all cursor-pointer uppercase leading-none">
+    <section id="blueprint" class="py-24 sm:py-32 border-b border-stone-900 bg-[#0c0a09]">
+        <div class="container mx-auto px-6 sm:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-16">
+                <div class="lg:col-span-4 uppercase text-[10px] font-black text-amber-500/60 tracking-[0.4em]">05 / The Blueprint</div>
+                <div class="lg:col-span-8">
+                    <h2 class="text-2xl sm:text-4xl font-black uppercase"><span lang-zh>4步高效合规共创路径</span><span lang-en>The Collaboration Journey</span></h2>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="relative pl-6 border-l-2 border-stone-800 hover:border-amber-500 transition">
+                    <span class="text-xs font-black text-amber-500">STEP 01</span>
+                    <h4 class="text-base font-bold mt-2 mb-1"><span lang-zh>品牌洞察</span><span lang-en>Strategy Audit</span></h4>
+                    <p class="text-xs text-stone-500"><span lang-zh>精准剖析出海供应链优势与目标受众画像。</span><span lang-en>Auditing supply chain edge vs local persona.</span></p>
+                </div>
+                <div class="relative pl-6 border-l-2 border-stone-800 hover:border-amber-500 transition">
+                    <span class="text-xs font-black text-amber-500">STEP 02</span>
+                    <h4 class="text-base font-bold mt-2 mb-1"><span lang-zh>红人精选</span><span lang-en>Talent Curation</span></h4>
+                    <p class="text-xs text-stone-500"><span lang-zh>根据垂直类目匹配多维层级红人矩阵。</span><span lang-en>Matching tiered influencers by metric models.</span></p>
+                </div>
+                <div class="relative pl-6 border-l-2 border-stone-800 hover:border-amber-500 transition">
+                    <span class="text-xs font-black text-amber-500">STEP 03</span>
+                    <h4 class="text-base font-bold mt-2 mb-1"><span lang-zh>内容本土爆破</span><span lang-en>Native Production</span></h4>
+                    <p class="text-xs text-stone-500"><span lang-zh>开罗编剧团队操刀定制高赞传播脚本。</span><span lang-en>Localizing viral stories via native scriptwriting.</span></p>
+                </div>
+                <div class="relative pl-6 border-l-2 border-stone-800 hover:border-amber-500 transition">
+                    <span class="text-xs font-black text-amber-500">STEP 04</span>
+                    <h4 class="text-base font-bold mt-2 mb-1"><span lang-zh>多维复盘</span><span lang-en>ROI Analytics</span></h4>
+                    <p class="text-xs text-stone-500"><span lang-zh>追踪播放量、留资转化并沉淀内容资产。</span><span lang-en>Delivering metrics dashboards & verified conversions.</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-24 sm:py-32 border-t border-stone-900 text-center bg-black text-white">
+        <div class="container mx-auto px-6 sm:px-8">
+            <h2 class="text-4xl sm:text-6xl lg:text-8xl font-black tracking-tighter mb-16 hover:text-amber-500 transition-all cursor-pointer uppercase leading-none">
                 START YOUR ONYX ERA.
             </h2>
             <div class="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12 font-black">
-                <a href="mailto:HELLO@ONYXMEDIAGLOBAL.COM" class="text-base sm:text-xl border-b-2 sm:border-b-4 border-amber-500 hover:text-amber-400 transition text-amber-500 tracking-wider">
+                <a href="mailto:HELLO@ONYXMEDIAGLOBAL.COM" class="text-base sm:text-xl border-b-2 border-amber-500 hover:text-amber-400 transition text-amber-500 tracking-wider">
                     HELLO@ONYXMEDIAGLOBAL.COM
                 </a>
-                <span class="text-gray-700 hidden lg:block">/</span>
+                <span class="text-stone-800 hidden lg:block">/</span>
                 
-                <a href="https://wa.me/201225954426" target="_blank" class="text-base sm:text-xl border-b-2 sm:border-b-4 border-emerald-500 hover:text-emerald-400 transition text-emerald-500 flex items-center gap-2 sm:gap-3 tracking-wider">
-                    <i class="fa-brands fa-whatsapp text-xl sm:text-2xl"></i> +20 122 595 4426
+                <a href="https://wa.me/201225954426" target="_blank" class="text-base sm:text-xl border-b-2 border-emerald-500 hover:text-emerald-400 transition text-emerald-500 flex items-center gap-2 tracking-wider">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> +20 122 595 4426
                 </a>
                 
-                <span class="text-gray-700 hidden lg:block">/</span>
-                <p class="text-base sm:text-xl uppercase tracking-widest text-gray-300">MAADI, CAIRO, EGYPT</p>
+                <span class="text-stone-800 hidden lg:block">/</span>
+                <p class="text-base sm:text-xl uppercase tracking-widest text-stone-400">MAADI, CAIRO, EGYPT</p>
             </div>
-            <p class="mt-24 sm:mt-40 text-[9px] sm:text-[10px] text-gray-600 font-bold uppercase tracking-[0.5em] px-4">© 2026 ONYX MEDIA GLOBAL - THE ALPHA EDITION</p>
+            <p class="mt-24 text-[9px] sm:text-[10px] text-stone-700 font-bold uppercase tracking-[0.5em]">© 2026 ONYX MEDIA GLOBAL - THE ALPHA EDITION</p>
         </div>
     </footer>
 
