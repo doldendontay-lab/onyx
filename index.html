@@ -104,47 +104,56 @@
         </div>
     </nav>
 
-   <!-- 重新设计的 IG 高级感封面（保留用户原始文案） -->
-<header class="relative h-[85vh] sm:h-screen flex flex-col justify-end bg-[#0c0a09] overflow-hidden">
+  <!-- 重新定义的 IG 高级感封面 (保留用户最爱的背景设计、网格线与特定文案) -->
+<header class="relative h-[85vh] sm:h-screen flex flex-col justify-end overflow-hidden bg-[#0c0a09]">
+    
     <!-- 背景视觉层 -->
     <div class="absolute inset-0 z-0">
-        <!-- 选用具有开罗现代都市感与时尚气息的背景图，体现 IG 网红风格 -->
-        <img src="https://images.unsplash.com/photo-1528698827591-e19ccd7bc23d?q=80&w=1200&auto=format&fit=crop" 
-             class="w-full h-full object-cover object-center opacity-50 mix-blend-screen scale-100" 
-             alt="Cairo Modern Lifestyle" 
+        <!-- 1. 核心背景图：开罗夜色时尚视觉 -->
+        <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?q=80&w=1200&auto=format&fit=crop" 
+             class="w-full h-full object-cover object-top opacity-60 mix-blend-lighten scale-100" 
+             alt="Onyx Influence" 
              onerror="this.style.opacity='0';">
         
-        <!-- 核心视觉防御：多重渐变确保高级感 -->
-        <div class="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/50 to-transparent"></div>
-        <div class="absolute inset-0 bg-gradient-to-r from-[#0c0a09]/60 via-transparent to-transparent"></div>
+        <!-- 2. 网格线层：数字化精密感 -->
+        <div class="absolute inset-0 z-10" 
+             style="background-image: linear-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px), 
+                                     linear-gradient(90deg, rgba(212, 175, 55, 0.12) 1px, transparent 1px);
+                    background-size: 35px 35px;">
+        </div>
+
+        <!-- 3. 核心渐变遮罩 -->
+        <div class="absolute inset-0 bg-gradient-to-t from-[#0c0a09] via-[#0c0a09]/40 to-transparent z-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-[#0c0a09]/80 via-transparent to-transparent z-20"></div>
         
-        <!-- 增加 IG 感的纹理和暗角 -->
-        <div class="absolute inset-0" style="background-image: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.4) 100%);"></div>
+        <!-- 4. 模拟 IG 滤镜的暗角 -->
+        <div class="absolute inset-0 shadow-[inset_0px_0px_150px_rgba(0,0,0,0.9)] z-30"></div>
     </div>
 
-    <div class="container mx-auto px-6 sm:px-8 pb-16 sm:pb-32 relative z-10 text-white">
+    <!-- 内容层：【完全还原你指定的文案与样式】 -->
+    <div class="container mx-auto px-6 sm:px-8 pb-16 sm:pb-32 relative z-40">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end">
             <div class="lg:col-span-9">
-                <!-- 顶部小标签保持灵动 -->
+                <!-- 顶部的 Powerhouse 标签 -->
                 <div class="inline-block px-3 py-1 border-2 border-amber-500 text-amber-500 text-[9px] sm:text-[10px] font-black uppercase mb-6 sm:mb-8 tracking-widest bg-amber-500/10 backdrop-blur-sm">
                     Nile Digital Powerhouse
                 </div>
                 
-                <!-- 标题部分 -->
+                <!-- 大标题 -->
                 <h1 class="hero-title text-white">
                     Connecting <br>
                     <span class="text-transparent" style="-webkit-text-stroke: 1.5px #D4AF37;">Egyptian</span> Voices <br>
                     with <span class="highlight">Global</span> Supply Chains
                 </h1>
                 
-                <!-- 【保留你的原始文案】 -->
+                <!-- 【修正：还原你的描述文案】 -->
                 <p class="mt-6 sm:mt-8 text-lg sm:text-2xl font-bold italic text-gray-200">
                     <span lang-zh>将埃及本土流量与中国出海供应链完美连接</span>
                     <span lang-en>Bridging Egyptian Creators with Global Commerce.</span>
                 </p>
             </div>
             
-            <!-- 【保留你的右侧原始文案】 -->
+            <!-- 【修正：还原你的右侧侧边文案】 -->
             <div class="lg:col-span-3 border-l-4 border-amber-500 pl-4 sm:pl-8 py-2 text-gray-300">
                 <p class="text-xs sm:text-sm font-black uppercase tracking-widest leading-relaxed">
                     <span lang-zh>赋能商业无界<br class="hidden sm:block">让每一个中国品牌闪耀埃及</span>
@@ -317,27 +326,167 @@
         </div>
     </section>
 
-    <footer id="contact" class="py-24 sm:py-32 border-t border-stone-900 text-center bg-black text-white">
-        <div class="container mx-auto px-6 sm:px-8">
-            <h2 class="text-4xl sm:text-6xl lg:text-8xl font-black tracking-tighter mb-16 hover:text-amber-500 transition-all cursor-pointer uppercase leading-none">
-                START YOUR ONYX ERA.
-            </h2>
-            <div class="flex flex-col lg:flex-row justify-center items-center gap-6 lg:gap-12 font-black">
-                <a href="mailto:HELLO@ONYXMEDIAGLOBAL.COM" class="text-base sm:text-xl border-b-2 border-amber-500 hover:text-amber-400 transition text-amber-500 tracking-wider">
-                    HELLO@ONYXMEDIAGLOBAL.COM
+  <!-- 底部联系与社交矩阵 - 最终实名版 -->
+<footer id="contact" class="py-24 sm:py-32 border-t border-stone-900 bg-black text-white">
+    <div class="container mx-auto px-6 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-24">
+            <!-- 左侧：行动号召 -->
+            <div>
+                <h2 class="text-4xl sm:text-6xl font-black tracking-tighter mb-8 uppercase leading-none">
+                    START YOUR <br><span class="text-amber-500">ONYX ERA.</span>
+                </h2>
+                <p class="text-stone-400 max-w-md text-sm sm:text-base mb-8">
+                    <span lang-zh>准备好让您的品牌在埃及社交媒体上爆发了吗？通过以下渠道联系我们的创始团队。</span>
+                    <span lang-en>Ready to ignite your brand on Egyptian social media? Connect with our founding team via these channels.</span>
+                </p>
+                <a href="mailto:doldendontay@gmail.com" class="text-xl sm:text-2xl border-b-2 border-amber-500 text-amber-500 font-bold hover:text-amber-400 transition tracking-wider uppercase">
+                    doldendontay@gmail.com
                 </a>
-                <span class="text-stone-800 hidden lg:block">/</span>
-                
-                <a href="https://wa.me/201225954426" target="_blank" class="text-base sm:text-xl border-b-2 border-emerald-500 hover:text-emerald-400 transition text-emerald-500 flex items-center gap-2 tracking-wider">
-                    <i class="fa-brands fa-whatsapp text-xl"></i> +20 122 595 4426
-                </a>
-                
-                <span class="text-stone-800 hidden lg:block">/</span>
-                <p class="text-base sm:text-xl uppercase tracking-widest text-stone-400">MAADI, CAIRO, EGYPT</p>
             </div>
-            <p class="mt-24 text-[9px] sm:text-[10px] text-stone-700 font-bold uppercase tracking-[0.5em]">© 2026 ONYX MEDIA GLOBAL - THE ALPHA EDITION</p>
+
+            <!-- 右侧：社交媒体矩阵 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                <!-- 微信 WeChat -->
+                <div class="group border border-stone-800 p-6 rounded-2xl hover:border-emerald-500/50 transition-all duration-500 bg-stone-900/20">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                            <i class="fa-brands fa-weixin text-xl"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-widest text-stone-500">WeChat</span>
+                    </div>
+                    <p class="text-lg font-bold text-stone-200 select-all">Summer_X_7</p>
+                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-tighter">Copy ID to connect</p>
+                </div>
+
+                <!-- 抖音 Douyin -->
+                <div class="group border border-stone-800 p-6 rounded-2xl hover:border-white/30 transition-all duration-500 bg-stone-900/20">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors">
+                            <i class="fa-brands fa-tiktok text-xl"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-widest text-stone-500">Douyin</span>
+                    </div>
+                    <p class="text-lg font-bold text-stone-200">SUMMER妖魔鬼怪</p>
+                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-tighter">Search on Douyin</p>
+                </div>
+
+                <!-- Instagram -->
+                <div class="group border border-stone-800 p-6 rounded-2xl hover:border-amber-500/50 transition-all duration-500 bg-stone-900/20">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-widest text-stone-500">Instagram</span>
+                    </div>
+                    <p class="text-lg font-bold text-stone-200">@summer.xx.y</p>
+                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-tighter">Follow our aesthetics</p>
+                </div>
+
+                <!-- WhatsApp/Phone -->
+                <div class="group border border-stone-800 p-6 rounded-2xl hover:border-stone-500 transition-all duration-500 bg-stone-900/20">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 group-hover:bg-stone-200 group-hover:text-black transition-colors">
+                            <i class="fa-solid fa-location-dot text-lg"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-widest text-stone-500">Location</span>
+                    </div>
+                    <p class="text-lg font-bold text-stone-200 uppercase">Maadi, Cairo</p>
+                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-tighter">The Heart of Nile Media</p>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <!-- 底部版权与背书 -->
+        <div class="pt-12 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <p class="text-[10px] text-stone-700 font-bold uppercase tracking-[0.5em]">© 2026 ONYX MEDIA GLOBAL - THE ALPHA EDITION</p>
+            <div class="flex gap-8">
+                <span class="text-[10px] text-stone-500 font-bold uppercase tracking-widest">Cairo</span>
+                <span class="text-[10px] text-stone-500 font-bold uppercase tracking-widest">Shanghai</span>
+                <span class="text-[10px] text-stone-500 font-bold uppercase tracking-widest">Dubai</span>
+            </div>
+        </div>
+    </div>
+<!-- 底部联系与社交矩阵 - 完整版 (包含 WhatsApp 直接跳转) -->
+<footer id="contact" class="py-24 sm:py-32 border-t border-stone-900 bg-black text-white">
+    <div class="container mx-auto px-6 sm:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-24">
+            <!-- 左侧：行动号召 -->
+            <div>
+                <h2 class="text-4xl sm:text-6xl font-black tracking-tighter mb-8 uppercase leading-none">
+                    START YOUR <br><span class="text-amber-500">ONYX ERA.</span>
+                </h2>
+                <p class="text-stone-400 max-w-md text-sm sm:text-base mb-8">
+                    <span lang-zh>准备好让您的品牌在埃及社交媒体上爆发了吗？通过以下渠道联系我们的创始团队。</span>
+                    <span lang-en>Ready to ignite your brand on Egyptian social media? Connect with our founding team via these channels.</span>
+                </p>
+                <a href="mailto:doldendontay@gmail.com" class="text-xl sm:text-2xl border-b-2 border-amber-500 text-amber-500 font-bold hover:text-amber-400 transition tracking-wider uppercase">
+                    doldendontay@gmail.com
+                </a>
+            </div>
+
+            <!-- 右侧：社交媒体矩阵 -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
+                <!-- 微信 WeChat -->
+                <div class="group border border-stone-800 p-6 rounded-2xl hover:border-emerald-500/50 transition-all duration-500 bg-stone-900/20">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 group-hover:bg-emerald-500 group-hover:text-white transition-colors">
+                            <i class="fa-brands fa-weixin text-xl"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-widest text-stone-500">WeChat</span>
+                    </div>
+                    <p class="text-lg font-bold text-stone-200 select-all">Summer_X_7</p>
+                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-tighter">Copy ID to connect</p>
+                </div>
+
+                <!-- 抖音 Douyin -->
+                <div class="group border border-stone-800 p-6 rounded-2xl hover:border-white/30 transition-all duration-500 bg-stone-900/20">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white group-hover:bg-white group-hover:text-black transition-colors">
+                            <i class="fa-brands fa-tiktok text-xl"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-widest text-stone-500">Douyin</span>
+                    </div>
+                    <p class="text-lg font-bold text-stone-200">SUMMER妖魔鬼怪</p>
+                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-tighter">Search on Douyin</p>
+                </div>
+
+                <!-- Instagram -->
+                <div class="group border border-stone-800 p-6 rounded-2xl hover:border-amber-500/50 transition-all duration-500 bg-stone-900/20">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500 group-hover:bg-amber-500 group-hover:text-black transition-colors">
+                            <i class="fa-brands fa-instagram text-xl"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-widest text-stone-500">Instagram</span>
+                    </div>
+                    <p class="text-lg font-bold text-stone-200">@summer.xx.y</p>
+                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-tighter">Follow our aesthetics</p>
+                </div>
+
+                <!-- 【还原】WhatsApp 直接跳转板块 -->
+                <a href="https://wa.me/201225954426" target="_blank" class="group border border-stone-800 p-6 rounded-2xl hover:border-emerald-400/50 transition-all duration-500 bg-stone-900/20 block">
+                    <div class="flex items-center gap-4 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-emerald-400/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-400 group-hover:text-white transition-colors">
+                            <i class="fa-brands fa-whatsapp text-xl"></i>
+                        </div>
+                        <span class="font-black text-[10px] uppercase tracking-widest text-stone-500">WhatsApp</span>
+                    </div>
+                    <p class="text-lg font-bold text-stone-200">+20 122 595 4426</p>
+                    <p class="text-[10px] text-stone-500 mt-1 uppercase tracking-tighter">Click to Chat Now</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- 底部版权与背书 -->
+        <div class="pt-12 border-t border-stone-900 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <p class="text-[10px] text-stone-700 font-bold uppercase tracking-[0.5em]">© 2026 ONYX MEDIA GLOBAL - THE ALPHA EDITION</p>
+            <div class="flex gap-8">
+                <span class="text-[10px] text-stone-500 font-bold uppercase tracking-widest">Cairo</span>
+                <span class="text-[10px] text-stone-500 font-bold uppercase tracking-widest">Shanghai</span>
+                <span class="text-[10px] text-stone-500 font-bold uppercase tracking-widest">Dubai</span>
+            </div>
+        </div>
+    </div>
+</footer>
 
     <script>
         function toggleLang() {
